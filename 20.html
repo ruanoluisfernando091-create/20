@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Carta para Mi Reina</title>
+    <style>
+        :root {
+            --morado-oscuro: #4a148c;
+            --morado-medio: #7b1fa2;
+            --morado-claro: #e1bee7;
+            --blanco: #ffffff;
+            --oro: #d4af37;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f8f0fb;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--morado-oscuro);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid var(--morado-claro);
+            position: relative;
+        }
+
+        .screen { display: none; animation: fadeIn 1.2s ease-in-out; }
+        .active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* Estilo Calendario */
+        .calendar {
+            border: 2px solid var(--morado-medio);
+            border-radius: 10px;
+            width: 200px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .cal-header { background: var(--morado-medio); color: white; padding: 10px; font-weight: bold; }
+        .cal-body { font-size: 3rem; padding: 20px; color: var(--morado-oscuro); }
+        .cal-footer { padding: 10px; background: var(--morado-claro); font-weight: bold; }
+
+        .timer-box {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: var(--morado-medio);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Estilo Carta */
+        .letter-content {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: #333;
+            padding: 20px;
+            background: #fffdf9;
+            border-left: 3px solid var(--morado-claro);
+            font-style: italic;
+        }
+
+        .hidden-digit {
+            color: inherit; /* Se mezcla con el texto */
+            font-weight: normal;
+            cursor: default;
+        }
+
+        button {
+            background-color: var(--morado-medio);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: 0.4s;
+        }
+        button:hover { background-color: var(--morado-oscuro); letter-spacing: 1px; }
+
+        input {
+            padding: 10px;
+            font-size: 1.5rem;
+            width: 100px;
+            text-align: center;
+            border: 2px solid var(--morado-claro);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .hint { color: #888; font-size: 0.9rem; margin-bottom: 10px; }
+
+        /* Corazones flotantes */
+        .floating-heart {
+            position: fixed;
+            font-size: 20px;
+            color: #e91e63;
+            user-select: none;
+            pointer-events: none;
+            z-index: 999;
+            animation: floatUp 4s linear forwards;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="screen1" class="screen active">
+            <h1>Hola mi amor</h1>
+            <div class="calendar">
+                <div class="cal-header">ABRIL 2026</div>
+                <div class="cal-body">19</div>
+                <div class="cal-footer">Domingo</div>
+            </div>
+            <div class="timer-box">
+                Día faltante: 20
+            </div>
+            <p>Un día marcado en el corazón, una fecha que lo cambió todo.</p>
+            <button onclick="nextScreen(2)">Abrir mi corazón</button>
+        </div>
+
+        <div id="screen2" class="screen">
+            <h2>Mi amor hermosa, mi princesa de cuentos de hadas</h2>
+            <div class="letter-content">
+                <p>Hoy quiero detenerme un momento para decirte, con toda la fuerza de mi ser, cuánto te amo. A veces el día a día pasa rápido, pero en mi mente guardo intacto el recuerdo de aquel primer beso, como si hubiera ocurrido ayer mismo. Fue en ese instante mágico donde mis ojos empezaron a verte de una forma distinta, con un amor profundo que no ha dejado de crecer ni un sol<span class="hidden-digit">0</span> segundo desde entonces.</p>
+                
+                <p>Celebrar un año más de tu vida es, en realidad, el regalo más grande para mí. No solo festejo tu cumpleaños, sino la existencia de la mujer que más amo en este mundo. Te mereces que todo sea especial para ti, porque eres una persona increíble; me admira cómo, a pesar de los días grises, siempre intentas mantenerte positiva y genuina. Esa luz que tienes es lo que te hace única.</p>
+                
+                <p>Quiero que nunca olvides que siempre estaré aquí para ti. Cuando necesites alguien con quien desahogarte, cuando el mundo pese un poco más o cuando simplemente necesites un abrazo que te haga sentir segura, este es tu hogar. Mi reina bella, por favor, jamás dudes de quién eres, de lo importante que es tu presencia en este mundo y de la gran mujer en la que te has convertido.</p>
+                
+                <p>Hoy te pido un favor: mírate al espejo y ve lo que yo veo. Mira lo valiosa y hermosa que eres; fíjate en cómo esos ojitos tuyos tienen el poder de darme una paz que no encuentro en nin<span class="hidden-digit">9</span>gún otro lugar, y cómo tu sola presencia me transmite la tranquilidad que necesito para ser feliz.</p>
+                
+                <p>Estamos viviendo una etapa maravillosa y quiero que sepas que tu bebé y yo estamos profundamente orgullosos de ti. Él, por la madre tan increíble, amorosa y valiente que tendrá la suerte de tener; y yo, por la mujer tan especial, única y maravillosa que tengo el honor de llamar mi compañera de vida. </p>
+                
+                <p>Te amo mucho, hoy y siempre. Hay detalles que solo se ven si miras con el alma y con atenci<span class="hidden-digit">6</span>ón.</p>
+            </div>
+            <button onclick="nextScreen(3)">Siguiente</button>
+        </div>
+
+        <div id="screen3" class="screen">
+            <h2>El Código Oculto</h2>
+            <p>Mi amor, para encontrar la llave de esta página debiste leer con mucha atención. En las líneas de mi carta, el destino dejó caer tres gotas de tinta en forma de números.</p>
+            <div class="hint">"Busca en las palabras donde el amor se detuvo un segundo..."</div>
+            <input type="text" id="code-input" maxlength="3" placeholder="???">
+            <br>
+            <button onclick="checkFinalCode()">Revelar código final</button>
+        </div>
+
+        <div id="screen4" class="screen">
+            <h1>¡Lo lograste, mi vida! ❤️</h1>
+            <p>Tu paciencia y tu amor todo lo pueden.</p>
+            <div style="font-size: 4rem; color: var(--morado-medio); margin: 20px 0;">0</div>
+            <p><strong>Recuerda tomar nota de tu codigo: 0 es la llave que te llevara mas alla.</strong></p>
+        </div>
+    </div>
+
+    <script>
+        function nextScreen(num) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('screen' + num).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function checkFinalCode() {
+            const val = document.getElementById('code-input').value;
+            if(val === "096") {
+                startHearts();
+                nextScreen(4);
+            } else {
+                alert("Ese no es el código, mi reina. Mira bien las palabras de la carta... los números están escondidos ahí.");
+            }
+        }
+
+        function startHearts() {
+            for(let i=0; i<30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.className = 'floating-heart';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.bottom = '0';
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 200);
+            }
+        }
+    </script>
+</body>
+</html>
